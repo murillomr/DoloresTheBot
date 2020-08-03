@@ -17,4 +17,4 @@ class Filtragem():
         print(provaveis)
         return provaveis
 
-Filtragem.Provaveis()
+#Filtragem.Provaveis()
