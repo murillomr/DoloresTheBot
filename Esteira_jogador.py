@@ -1,3 +1,6 @@
+from Esteira_clubes import Partidas
+from Filtragem import FiltragemJogosClubes
+
 class Esteira():
     @classmethod
     def media_ponto(cls, jogadores):
@@ -93,3 +96,15 @@ class Esteira():
             except:
                 pass
         return jogadores
+
+    @classmethod
+    def mandante(cls, jogadores):
+        partidas = FiltragemJogosClubes.Jogos()
+        mandantes = Partidas.mandantes(partidas)
+        for i in jogadores:
+            if i['clube_id'] in mandantes:
+                i['score_robot'] = i['score_robot'] + 2
+            else:
+                pass
+        return jogadores
+

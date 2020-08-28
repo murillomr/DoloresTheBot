@@ -100,19 +100,19 @@ class FiltragemJogosClubes():
     def JogosClubes(cls):
         jogosclubes = BuscaDados.partidas()
         jogosclubes = json.loads(jogosclubes)
-        print(jogosclubes)
+        #print(jogosclubes)
         return jogosclubes
 
     @classmethod
     def Jogos(cls):
         jogos = FiltragemJogosClubes.JogosClubes()
-        print(jogos['partidas'])
+        #print(jogos['partidas'])
         return jogos['partidas']
 
     @classmethod
     def Clubes(cls):
         clubes = FiltragemJogosClubes.JogosClubes()
-        print(clubes['clubes'])
+        #print(clubes['clubes'])
         return clubes['clubes']
 
 #Filtragem.Atacantes()

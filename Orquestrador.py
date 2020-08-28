@@ -21,7 +21,11 @@ print(abc8)
 abc9 = Esteira.desarmes(abc8)
 print(abc9)
 
+abc10 = Esteira.mandante(abc9)
+print(abc10)
 
+
+'''
 jogos1 = FiltragemJogosClubes.Jogos()
 print(jogos1)
 
@@ -45,3 +49,4 @@ print(neutro)
 
 z4 = Partidas.rebaixamento(clubes1)
 print(z4)
+'''
