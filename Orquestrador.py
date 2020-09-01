@@ -3,84 +3,393 @@ from Esteira_jogador import Esteira
 from Esteira_clubes import Partidas
 from Filtragem import FiltragemJogadores, FiltragemJogosClubes
 
-teste = FiltragemJogadores.Atacantes()
-abc = Esteira.media_ponto(teste)
-abc2 = Esteira.qtd_jogos(abc)
-abc3 = Esteira.desvalorizou(abc2)
-# print(abc3)
-abc4 = Esteira.gols(abc3)
-# print(abc4)
-abc5 = Esteira.cartoes(abc4)
-# print(abc5)
-abc6 = Esteira.faltas(abc5)
-print(abc6)
-abc7 = Esteira.finalizacoes(abc6)
-print(abc7)
-abc8 = Esteira.assistencias(abc7)
-print(abc8)
-abc9 = Esteira.desarmes(abc8)
-print(abc9)
+class Orquestra():
+    @classmethod
+    def Atacantes(cls):
+        Filtro = FiltragemJogadores.Atacantes()
+        Media_pt = Esteira.media_ponto(Filtro)
+        Qtd_jogos = Esteira.qtd_jogos(Media_pt)
+        Desval = Esteira.desvalorizou(Qtd_jogos)
+        Gols = Esteira.gols(Desval)
+        Cartoes = Esteira.cartoes(Gols)
+        Faltas = Esteira.faltas(Cartoes)
+        Finalizacoes = Esteira.finalizacoes(Faltas)
+        Assists = Esteira.assistencias(Finalizacoes)
+        Desarmes = Esteira.desarmes(Assists)
+        Mandante = Esteira.mandante(Desarmes)
+        Clube = Esteira.posicaotime(Mandante)
+        ResultadoFinal = Esteira.adversario(Clube)
+        lista = []
+        for i in ResultadoFinal:
+            lista.append(i['score_robot'])
+            if i['score_robot'] > 8:
+                score = str(i['score_robot'])
+                score = score[:4]
+                print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
+            else:
+                pass
+        #return lista
+        lista_sort = sorted(lista, reverse=True)
+        x = 0
+        pontuacao_final = []
+        while x < 5:
+            print(str(lista_sort[x]))
+            pontuacao_final.append(lista_sort[x])
+            x = x + 1
+        print(pontuacao_final)
+        print(pontuacao_final[0])
+        dic_final = {"qualificados": []}
+        for i in ResultadoFinal:
+            if pontuacao_final[0] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o maior pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 1})
+            elif pontuacao_final[1] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o segundo pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 2})
+            elif pontuacao_final[2] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o terceiro pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 3})
+            elif pontuacao_final[3] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quarto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 4})
+            elif pontuacao_final[4] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quinto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 5})
+            else:
+                pass
+        print(dic_final)
+        return dic_final
 
-abc10 = Esteira.mandante(abc9)
-print(abc10)
+    @classmethod
+    def Meias(cls):
+        Filtro = FiltragemJogadores.Meias()
+        Media_pt = Esteira.media_ponto(Filtro)
+        Qtd_jogos = Esteira.qtd_jogos(Media_pt)
+        Desval = Esteira.desvalorizou(Qtd_jogos)
+        Gols = Esteira.gols(Desval)
+        Cartoes = Esteira.cartoes(Gols)
+        Faltas = Esteira.faltas(Cartoes)
+        Finalizacoes = Esteira.finalizacoes(Faltas)
+        Assists = Esteira.assistencias(Finalizacoes)
+        Desarmes = Esteira.desarmes(Assists)
+        Mandante = Esteira.mandante(Desarmes)
+        Clube = Esteira.posicaotime(Mandante)
+        ResultadoFinal = Esteira.adversario(Clube)
+        lista = []
+        for i in ResultadoFinal:
+            lista.append(i['score_robot'])
+            if i['score_robot'] > 8:
+                score = str(i['score_robot'])
+                score = score[:4]
+                print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
+            else:
+                pass
+        #return lista
+        lista_sort = sorted(lista, reverse=True)
+        x = 0
+        pontuacao_final = []
+        while x < 5:
+            print(str(lista_sort[x]))
+            pontuacao_final.append(lista_sort[x])
+            x = x + 1
+        #print(pontuacao_final)
+        #print(pontuacao_final[0])
+        dic_final = {"qualificados": []}
+        for i in ResultadoFinal:
+            if pontuacao_final[0] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o maior pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 1})
+            elif pontuacao_final[1] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o segundo pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 2})
+            elif pontuacao_final[2] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o terceiro pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 3})
+            elif pontuacao_final[3] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quarto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 4})
+            elif pontuacao_final[4] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quinto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 5})
+            else:
+                pass
+        print(dic_final)
+        return dic_final
 
-abc11 = Esteira.libertadores(abc10)
-print(abc11)
+    @classmethod
+    def Laterais(cls):
+        Filtro = FiltragemJogadores.Laterais()
+        Media_pt = Esteira.media_ponto(Filtro)
+        Qtd_jogos = Esteira.qtd_jogos(Media_pt)
+        Desval = Esteira.desvalorizou(Qtd_jogos)
+        Gols = Esteira.gols(Desval)
+        Cartoes = Esteira.cartoes(Gols)
+        Faltas = Esteira.faltas(Cartoes)
+        Finalizacoes = Esteira.finalizacoes(Faltas)
+        Assists = Esteira.assistencias(Finalizacoes)
+        Desarmes = Esteira.desarmes(Assists)
+        Mandante = Esteira.mandante(Desarmes)
+        Clube = Esteira.posicaotime(Mandante)
+        ResultadoFinal = Esteira.adversario(Clube)
+        lista = []
+        for i in ResultadoFinal:
+            lista.append(i['score_robot'])
+            if i['score_robot'] > 8:
+                score = str(i['score_robot'])
+                score = score[:4]
+                print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
+            else:
+                pass
+        #return lista
+        lista_sort = sorted(lista, reverse=True)
+        x = 0
+        pontuacao_final = []
+        while x < 5:
+            print(str(lista_sort[x]))
+            pontuacao_final.append(lista_sort[x])
+            x = x + 1
+        #print(pontuacao_final)
+        #print(pontuacao_final[0])
+        dic_final = {"qualificados": []}
+        for i in ResultadoFinal:
+            if pontuacao_final[0] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o maior pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 1})
+            elif pontuacao_final[1] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o segundo pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 2})
+            elif pontuacao_final[2] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o terceiro pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 3})
+            elif pontuacao_final[3] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quarto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 4})
+            elif pontuacao_final[4] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quinto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 5})
+            else:
+                pass
+        print(dic_final)
+        return dic_final
 
-abc12 = Esteira.prelibertadores(abc11)
-print(abc12)
 
-abc13 = Esteira.sulamericana(abc12)
-print(abc13)
+    @classmethod
+    def Zagueiros(cls):
+        Filtro = FiltragemJogadores.Zagueiros()
+        Media_pt = Esteira.media_ponto(Filtro)
+        Qtd_jogos = Esteira.qtd_jogos(Media_pt)
+        Desval = Esteira.desvalorizou(Qtd_jogos)
+        Gols = Esteira.gols(Desval)
+        Cartoes = Esteira.cartoes(Gols)
+        Faltas = Esteira.faltas(Cartoes)
+        Finalizacoes = Esteira.finalizacoes(Faltas)
+        Assists = Esteira.assistencias(Finalizacoes)
+        Desarmes = Esteira.desarmes(Assists)
+        Mandante = Esteira.mandante(Desarmes)
+        Clube = Esteira.posicaotime(Mandante)
+        ResultadoFinal = Esteira.adversario(Clube)
+        lista = []
+        for i in ResultadoFinal:
+            lista.append(i['score_robot'])
+            if i['score_robot'] > 8:
+                score = str(i['score_robot'])
+                score = score[:4]
+                print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
+            else:
+                pass
+        #return lista
+        lista_sort = sorted(lista, reverse=True)
+        x = 0
+        pontuacao_final = []
+        while x < 5:
+            #print(str(lista_sort[x]))
+            pontuacao_final.append(lista_sort[x])
+            x = x + 1
+        #print(pontuacao_final)
+        #print(pontuacao_final[0])
+        dic_final = {"qualificados": []}
+        for i in ResultadoFinal:
+            if pontuacao_final[0] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o maior pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 1})
+            elif pontuacao_final[1] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o segundo pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 2})
+            elif pontuacao_final[2] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o terceiro pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 3})
+            elif pontuacao_final[3] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quarto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 4})
+            elif pontuacao_final[4] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quinto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 5})
+            else:
+                pass
+        print(dic_final)
+        return dic_final
 
-abc14 = Esteira.neutros(abc13)
-print(abc14)
+    @classmethod
+    def Goleiros(cls):
+        Filtro = FiltragemJogadores.Goleiros()
+        Media_pt = Esteira.media_ponto(Filtro)
+        Qtd_jogos = Esteira.qtd_jogos(Media_pt)
+        Desval = Esteira.desvalorizou(Qtd_jogos)
+        Gols = Esteira.gols(Desval)
+        Cartoes = Esteira.cartoes(Gols)
+        Faltas = Esteira.faltas(Cartoes)
+        Finalizacoes = Esteira.finalizacoes(Faltas)
+        Assists = Esteira.assistencias(Finalizacoes)
+        Desarmes = Esteira.desarmes(Assists)
+        Mandante = Esteira.mandante(Desarmes)
+        Clube = Esteira.posicaotime(Mandante)
+        ResultadoFinal = Esteira.adversario(Clube)
+        lista = []
+        for i in ResultadoFinal:
+            lista.append(i['score_robot'])
+            if i['score_robot'] > 8:
+                score = str(i['score_robot'])
+                score = score[:4]
+                print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
+            else:
+                pass
+        #return lista
+        lista_sort = sorted(lista, reverse=True)
+        x = 0
+        pontuacao_final = []
+        while x < 5:
+            print(str(lista_sort[x]))
+            pontuacao_final.append(lista_sort[x])
+            x = x + 1
+        print(pontuacao_final)
+        print(pontuacao_final[0])
+        dic_final = {"qualificados": []}
+        for i in ResultadoFinal:
+            if pontuacao_final[0] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o maior pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 1})
+            elif pontuacao_final[1] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o segundo pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 2})
+            elif pontuacao_final[2] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o terceiro pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 3})
+            elif pontuacao_final[3] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quarto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 4})
+            elif pontuacao_final[4] == i['score_robot']:
+                print("O jogador " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quinto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 5})
+            else:
+                pass
+        print(dic_final)
+        return dic_final
 
-abc15 = Esteira.rebaixamento(abc14)
-print(abc15)
-
-abc16 = Esteira.adversario(abc15)
-print(abc16)
-
-lista = []
-for i in abc15:
-    lista.append(i['score_robot'])
-    if i['score_robot'] > 8:
-        score = str(i['score_robot'])
-        score = score[:4]
-        print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
-    else:
-        pass
-
-lista_sort = sorted(lista, reverse=True)
-x = 0
-while x < 5:
-    print(str(lista_sort[x]))
-    x = x + 1
-
-
-'''
-jogos1 = FiltragemJogosClubes.Jogos()
-print(jogos1)
-
-clubes1 = FiltragemJogosClubes.Clubes()
-print(clubes1)
-
-mandantes = Partidas.mandantes(jogos1)
-print(mandantes)
-
-libertadores = Partidas.libertadores(clubes1)
-print(libertadores)
-
-preliberta = Partidas.pre_libertadores(clubes1)
-print(preliberta)
-
-sula = Partidas.sulamericana(clubes1)
-print(sula)
-
-neutro = Partidas.neutro(clubes1)
-print(neutro)
-
-z4 = Partidas.rebaixamento(clubes1)
-print(z4)
-'''
+    @classmethod
+    def Tecnicos(cls):
+        Filtro = FiltragemJogadores.Tecnicos()
+        Media_pt = Esteira.media_ponto(Filtro)
+        Desval = Esteira.desvalorizou(Media_pt)
+        Mandante = Esteira.mandante(Desval)
+        Clube = Esteira.posicaotime(Mandante)
+        ResultadoFinal = Esteira.adversario(Clube)
+        lista = []
+        for i in ResultadoFinal:
+            lista.append(i['score_robot'])
+            if i['score_robot'] > 8:
+                score = str(i['score_robot'])
+                score = score[:4]
+                print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
+            else:
+                pass
+        #return lista
+        lista_sort = sorted(lista, reverse=True)
+        x = 0
+        pontuacao_final = []
+        while x < 5:
+            print(str(lista_sort[x]))
+            pontuacao_final.append(lista_sort[x])
+            x = x + 1
+        print(pontuacao_final)
+        print(pontuacao_final[0])
+        dic_final = {"qualificados": []}
+        for i in ResultadoFinal:
+            if pontuacao_final[0] == i['score_robot']:
+                print("O tecnico " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o maior pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 1})
+            elif pontuacao_final[1] == i['score_robot']:
+                print("O tecnico " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o segundo pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 2})
+            elif pontuacao_final[2] == i['score_robot']:
+                print("O tecnico " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o terceiro pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 3})
+            elif pontuacao_final[3] == i['score_robot']:
+                print("O tecnico " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quarto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 4})
+            elif pontuacao_final[4] == i['score_robot']:
+                print("O tecnico " + i['apelido'] + " com ID " + str(i['atleta_id']) + " eh o quinto pontuador")
+                dic_final["qualificados"].append(
+                    {"Jogador": i['apelido'], "ID": str(i['atleta_id']), "Preco": i['preco_num'],
+                     "ScoreBOT": i['score_robot'], "Posicao": 5})
+            else:
+                pass
+        print(dic_final)
+        return dic_final

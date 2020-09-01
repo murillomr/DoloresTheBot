@@ -113,6 +113,58 @@ class Esteira():
         return jogadores
 
     @classmethod
+    def posicaotime(cls, jogadores):
+        libertadores = Partidas.libertadores(times)
+        prelibertadores = Partidas.pre_libertadores(times)
+        sulamericana = Partidas.sulamericana(times)
+        neutros = Partidas.neutro(times)
+        z4 = Partidas.rebaixamento(times)
+        for i in jogadores:
+            clube_id = i['clube_id']
+            if clube_id in libertadores:
+                i['score_robot'] = i['score_robot'] + 2
+            elif clube_id in prelibertadores:
+                i['score_robot'] = i['score_robot'] + 1
+            elif clube_id in sulamericana:
+                i['score_robot'] = i['score_robot'] + 0.3
+            elif clube_id in neutros:
+                i['score_robot'] = i['score_robot'] - 1
+            elif clube_id in z4:
+                i['score_robot'] = i['score_robot'] - 2
+        return jogadores
+
+    @classmethod
+    def adversario(cls, jogadores):
+        liberta = Partidas.libertadores(times)
+        preliberta = Partidas.pre_libertadores(times)
+        sula = Partidas.sulamericana(times)
+        neutro = Partidas.neutro(times)
+        z4 = Partidas.rebaixamento(times)
+        for i in jogadores:
+            clube_id = i['clube_id']
+            for w in partidas:
+                #print(w['clube_casa_id'])
+                if clube_id == w['clube_casa_id']:
+                    rival_id = w['clube_visitante_id']
+                else:
+                    rival_id = w['clube_casa_id']
+                if rival_id in liberta:
+                    i['score_robot'] = i['score_robot'] - 2
+                elif rival_id in preliberta:
+                    i['score_robot'] = i['score_robot'] - 1
+                elif rival_id in sula:
+                    i['score_robot'] = i['score_robot'] + 0.3
+                elif rival_id in neutro:
+                    i['score_robot'] = i['score_robot'] + 1
+                elif rival_id in z4:
+                    i['score_robot'] = i['score_robot'] + 2
+                else:
+                    pass
+        return jogadores
+
+## Daqui pra frente os metodos nao sao usados, obsoletos.. todos estado dentro do def posicaotime()
+
+    @classmethod
     def libertadores(cls, jogadores):
         libertadores = Partidas.libertadores(times)
         for i in jogadores:
@@ -161,34 +213,3 @@ class Esteira():
             else:
                 pass
         return jogadores
-
-
-    @classmethod
-    def adversario(cls, jogadores):
-        liberta = Partidas.libertadores(times)
-        preliberta = Partidas.pre_libertadores(times)
-        sula = Partidas.sulamericana(times)
-        neutro = Partidas.neutro(times)
-        z4 = Partidas.rebaixamento(times)
-        for i in jogadores:
-            clube_id = i['clube_id']
-            for w in partidas:
-                #print(w['clube_casa_id'])
-                if clube_id == w['clube_casa_id']:
-                    rival_id = w['clube_visitante_id']
-                else:
-                    rival_id = w['clube_casa_id']
-                if rival_id in liberta:
-                    i['score_robot'] = i['score_robot'] - 2
-                elif rival_id in preliberta:
-                    i['score_robot'] = i['score_robot'] - 1
-                elif rival_id in sula:
-                    i['score_robot'] = i['score_robot'] + 0.3
-                elif rival_id in neutro:
-                    i['score_robot'] = i['score_robot'] + 1
-                elif rival_id in z4:
-                    i['score_robot'] = i['score_robot'] + 2
-                else:
-                    pass
-        return jogadores
-

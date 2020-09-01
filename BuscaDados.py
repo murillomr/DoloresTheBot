@@ -12,6 +12,7 @@ class BuscaDados():
         resposta = requests.get(url, headers=headers)
         #print(resposta.content)
         r = resposta.content
+        #print(r)
         jogado = r.decode('utf-8')
         #print(jogado)
         return jogado
@@ -21,8 +22,9 @@ class BuscaDados():
         url = 'https://api.cartolafc.globo.com/mercado/status'
         resposta = requests.get(url, headers=headers)
         r = resposta.content
+        #print(r)
         statusmer = r.decode('utf-8')
-        print(statusmer)
+        #print(statusmer)
         return statusmer
 
     @classmethod
@@ -30,8 +32,9 @@ class BuscaDados():
         url = 'https://api.cartolafc.globo.com/partidas'
         resposta = requests.get(url, headers=headers)
         r = resposta.content
+        #print(r)
         jogos = r.decode('utf-8')
-        print(jogos)
+        #print(jogos)
         return jogos
 
 #BuscaDados.jogadores()
