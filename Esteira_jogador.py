@@ -4,6 +4,7 @@ from Filtragem import FiltragemJogosClubes
 partidas = FiltragemJogosClubes.Jogos()
 times = FiltragemJogosClubes.Clubes()
 
+
 class Esteira():
     @classmethod
     def media_ponto(cls, jogadores):
@@ -27,7 +28,6 @@ class Esteira():
             else:
                 pass
         return jogadores
-
 
     @classmethod
     def gols(cls, jogadores):
@@ -100,8 +100,6 @@ class Esteira():
                 pass
         return jogadores
 
-
-
     @classmethod
     def mandante(cls, jogadores):
         mandantes = Partidas.mandantes(partidas)
@@ -143,7 +141,7 @@ class Esteira():
         for i in jogadores:
             clube_id = i['clube_id']
             for w in partidas:
-                #print(w['clube_casa_id'])
+                # print(w['clube_casa_id'])
                 if clube_id == w['clube_casa_id']:
                     rival_id = w['clube_visitante_id']
                 else:
@@ -162,7 +160,11 @@ class Esteira():
                     pass
         return jogadores
 
-## Daqui pra frente os metodos nao sao usados, obsoletos.. todos estado dentro do def posicaotime()
+    #####################################################################################################
+    ##
+    ## Daqui pra frente os metodos nao sao usados, obsoletos.. todos estado dentro do def posicaotime()
+    ##
+    #####################################################################################################
 
     @classmethod
     def libertadores(cls, jogadores):

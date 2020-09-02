@@ -3,6 +3,7 @@ from Esteira_jogador import Esteira
 from Esteira_clubes import Partidas
 from Filtragem import FiltragemJogadores, FiltragemJogosClubes
 
+
 class Orquestra():
     @classmethod
     def Atacantes(cls):
@@ -28,7 +29,7 @@ class Orquestra():
                 print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
             else:
                 pass
-        #return lista
+        # return lista
         lista_sort = sorted(lista, reverse=True)
         x = 0
         pontuacao_final = []
@@ -94,7 +95,7 @@ class Orquestra():
                 print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
             else:
                 pass
-        #return lista
+        # return lista
         lista_sort = sorted(lista, reverse=True)
         x = 0
         pontuacao_final = []
@@ -102,8 +103,8 @@ class Orquestra():
             print(str(lista_sort[x]))
             pontuacao_final.append(lista_sort[x])
             x = x + 1
-        #print(pontuacao_final)
-        #print(pontuacao_final[0])
+        # print(pontuacao_final)
+        # print(pontuacao_final[0])
         dic_final = {"qualificados": []}
         for i in ResultadoFinal:
             if pontuacao_final[0] == i['score_robot']:
@@ -160,7 +161,7 @@ class Orquestra():
                 print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
             else:
                 pass
-        #return lista
+        # return lista
         lista_sort = sorted(lista, reverse=True)
         x = 0
         pontuacao_final = []
@@ -168,8 +169,8 @@ class Orquestra():
             print(str(lista_sort[x]))
             pontuacao_final.append(lista_sort[x])
             x = x + 1
-        #print(pontuacao_final)
-        #print(pontuacao_final[0])
+        # print(pontuacao_final)
+        # print(pontuacao_final[0])
         dic_final = {"qualificados": []}
         for i in ResultadoFinal:
             if pontuacao_final[0] == i['score_robot']:
@@ -202,7 +203,6 @@ class Orquestra():
         print(dic_final)
         return dic_final
 
-
     @classmethod
     def Zagueiros(cls):
         Filtro = FiltragemJogadores.Zagueiros()
@@ -227,16 +227,16 @@ class Orquestra():
                 print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
             else:
                 pass
-        #return lista
+        # return lista
         lista_sort = sorted(lista, reverse=True)
         x = 0
         pontuacao_final = []
         while x < 5:
-            #print(str(lista_sort[x]))
+            # print(str(lista_sort[x]))
             pontuacao_final.append(lista_sort[x])
             x = x + 1
-        #print(pontuacao_final)
-        #print(pontuacao_final[0])
+        # print(pontuacao_final)
+        # print(pontuacao_final[0])
         dic_final = {"qualificados": []}
         for i in ResultadoFinal:
             if pontuacao_final[0] == i['score_robot']:
@@ -293,7 +293,7 @@ class Orquestra():
                 print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
             else:
                 pass
-        #return lista
+        # return lista
         lista_sort = sorted(lista, reverse=True)
         x = 0
         pontuacao_final = []
@@ -352,7 +352,7 @@ class Orquestra():
                 print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
             else:
                 pass
-        #return lista
+        # return lista
         lista_sort = sorted(lista, reverse=True)
         x = 0
         pontuacao_final = []

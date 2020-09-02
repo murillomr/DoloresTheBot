@@ -1,6 +1,14 @@
 import json
 from BuscaDados import BuscaDados
 
+class FiltragemMercado():
+    @classmethod
+    def Statusmercado(cls):
+        estado_mercado = BuscaDados.statusmercado()
+        estado_mercado = json.loads(estado_mercado)
+        estado_mercado = estado_mercado['status_mercado']
+        #retorna "1" em caso de mercado aberto
+        return estado_mercado
 
 class FiltragemJogadores():
     @classmethod
