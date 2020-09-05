@@ -176,7 +176,11 @@ try:
                   + Preco_zag4 + Preco_zag5 + Preco_gol5 + Preco_tec5
 except:
     Time10_preco = 900
-
+try:
+    Time11_preco = Preco_atk5 + Preco_atk2 + Preco_atk3 + Preco_mei5 + Preco_mei2 + Preco_mei3 + Preco_lat5 + Preco_lat2 \
+                  + Preco_zag3 + Preco_zag5 + Preco_gol1 + Preco_tec1
+except:
+    Time11_preco = 900
 
 print(Time1_preco)
 print(Time2_preco)
@@ -187,6 +191,8 @@ print(Time6_preco)
 print(Time7_preco)
 print(Time8_preco)
 print(Time9_preco)
+print(Time10_preco)
+print(Time11_preco)
 
 
 #print(Atk1)

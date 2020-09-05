@@ -8,8 +8,8 @@ class BuscaDados():
     @classmethod
     def jogadores(cls):
         url = 'https://api.cartolafc.globo.com/atletas/mercado'
-        resposta = requests.get(url, proxies=proxies, headers=headers, verify=False)
-#        resposta = requests.get(url, headers=headers)
+        #resposta = requests.get(url, proxies=proxies, headers=headers, verify=False)
+        resposta = requests.get(url, headers=headers)
         #print(resposta.content)
         r = resposta.content
         #print(r)
