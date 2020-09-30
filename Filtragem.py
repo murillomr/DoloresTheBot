@@ -1,6 +1,11 @@
 import json
 from BuscaDados import BuscaDados
 
+lista = BuscaDados.jogadores()
+lista = json.loads(lista)
+lista = lista['atletas']
+jogos = BuscaDados.partidas()
+
 class FiltragemMercado():
     @classmethod
     def Statusmercado(cls):
@@ -10,12 +15,14 @@ class FiltragemMercado():
         #retorna "1" em caso de mercado aberto
         return estado_mercado
 
+
+
 class FiltragemJogadores():
     @classmethod
     def Provaveis(cls):
-        lista = BuscaDados.jogadores()
-        lista = json.loads(lista)
-        lista = lista['atletas']
+        #lista = BuscaDados.jogadores()
+        #lista = json.loads(lista)
+        #lista = lista['atletas']
         print(lista)
         provaveis = []
         for i in lista:
@@ -100,14 +107,12 @@ class FiltragemJogadores():
         print(tecnicos)
         return tecnicos
 
-
-
 class FiltragemJogosClubes():
 
     @classmethod
     def JogosClubes(cls):
-        jogosclubes = BuscaDados.partidas()
-        jogosclubes = json.loads(jogosclubes)
+        #jogosclubes = BuscaDados.partidas()
+        jogosclubes = json.loads(jogos)
         #print(jogosclubes)
         return jogosclubes
 

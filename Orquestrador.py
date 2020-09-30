@@ -158,7 +158,7 @@ class Orquestra():
             if i['score_robot'] > 8:
                 score = str(i['score_robot'])
                 score = score[:4]
-                print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
+                #print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
             else:
                 pass
         # return lista
@@ -224,7 +224,7 @@ class Orquestra():
             if i['score_robot'] > 8:
                 score = str(i['score_robot'])
                 score = score[:4]
-                print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
+                #print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
             else:
                 pass
         # return lista
@@ -290,7 +290,7 @@ class Orquestra():
             if i['score_robot'] > 8:
                 score = str(i['score_robot'])
                 score = score[:4]
-                print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
+                #print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
             else:
                 pass
         # return lista
@@ -349,7 +349,7 @@ class Orquestra():
             if i['score_robot'] > 8:
                 score = str(i['score_robot'])
                 score = score[:4]
-                print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
+                #print("O jogador " + i['apelido'] + " esta com " + score + " pontos")
             else:
                 pass
         # return lista

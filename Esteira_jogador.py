@@ -112,17 +112,18 @@ class Esteira():
 
     @classmethod
     def posicaotime(cls, jogadores):
-        libertadores = Partidas.libertadores(times)
-        prelibertadores = Partidas.pre_libertadores(times)
-        sulamericana = Partidas.sulamericana(times)
-        neutros = Partidas.neutro(times)
-        z4 = Partidas.rebaixamento(times)
+        GetPosicao = Partidas.filtro_times()
+        libertadores = GetPosicao['libertadores']
+        prelibertadores = GetPosicao['preliberta']
+        sulamericana = GetPosicao['sulamericana']
+        neutros = GetPosicao['neutro']
+        z4 = GetPosicao['z4']
         for i in jogadores:
             clube_id = i['clube_id']
             if clube_id in libertadores:
-                i['score_robot'] = i['score_robot'] + 2
+                i['score_robot'] = i['score_robot'] + 3
             elif clube_id in prelibertadores:
-                i['score_robot'] = i['score_robot'] + 1
+                i['score_robot'] = i['score_robot'] + 1.5
             elif clube_id in sulamericana:
                 i['score_robot'] = i['score_robot'] + 0.3
             elif clube_id in neutros:
@@ -133,11 +134,12 @@ class Esteira():
 
     @classmethod
     def adversario(cls, jogadores):
-        liberta = Partidas.libertadores(times)
-        preliberta = Partidas.pre_libertadores(times)
-        sula = Partidas.sulamericana(times)
-        neutro = Partidas.neutro(times)
-        z4 = Partidas.rebaixamento(times)
+        GetPosicao = Partidas.filtro_times()
+        liberta = GetPosicao['libertadores']
+        preliberta = GetPosicao['preliberta']
+        sula = GetPosicao['sulamericana']
+        neutro = GetPosicao['neutro']
+        z4 = GetPosicao['z4']
         for i in jogadores:
             clube_id = i['clube_id']
             for w in partidas:
@@ -153,9 +155,9 @@ class Esteira():
                 elif rival_id in sula:
                     i['score_robot'] = i['score_robot'] + 0.3
                 elif rival_id in neutro:
-                    i['score_robot'] = i['score_robot'] + 1
+                    i['score_robot'] = i['score_robot'] + 1.5
                 elif rival_id in z4:
-                    i['score_robot'] = i['score_robot'] + 2
+                    i['score_robot'] = i['score_robot'] + 3
                 else:
                     pass
         return jogadores
