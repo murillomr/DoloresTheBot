@@ -2,8 +2,6 @@ import requests
 import json
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/79.0'}
-headers_auth = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/79.0', 'Authorization': 'Bearer sabc'}
-headers_auth_hx = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/79.0', 'Authorization': 'Bearer abc'}
 proxies = {"http": "127.0.0.1:8080", "https": "127.0.0.1:8080"}
 
 class BuscaDados():
