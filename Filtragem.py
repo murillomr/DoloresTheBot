@@ -12,7 +12,6 @@ class FiltragemMercado():
         estado_mercado = BuscaDados.statusmercado()
         estado_mercado = json.loads(estado_mercado)
         estado_mercado = estado_mercado['status_mercado']
-        #retorna "1" em caso de mercado aberto
         return estado_mercado
 
 
@@ -20,10 +19,6 @@ class FiltragemMercado():
 class FiltragemJogadores():
     @classmethod
     def Provaveis(cls):
-        #lista = BuscaDados.jogadores()
-        #lista = json.loads(lista)
-        #lista = lista['atletas']
-        print(lista)
         provaveis = []
         for i in lista:
             if i['status_id'] == 7:
@@ -32,7 +27,6 @@ class FiltragemJogadores():
                 pass
         for i in provaveis:
             i['score_robot'] = 0
-        print(provaveis)
         return provaveis
 
     @classmethod
@@ -44,7 +38,6 @@ class FiltragemJogadores():
                 atacantes.append(i)
             else:
                 pass
-        print(atacantes)
         return atacantes
 
     @classmethod
@@ -56,7 +49,6 @@ class FiltragemJogadores():
                 meias.append(i)
             else:
                 pass
-        print(meias)
         return meias
 
     @classmethod
@@ -68,7 +60,6 @@ class FiltragemJogadores():
                 zagueiros.append(i)
             else:
                 pass
-        print(zagueiros)
         return zagueiros
 
     @classmethod
@@ -80,7 +71,6 @@ class FiltragemJogadores():
                 laterais.append(i)
             else:
                 pass
-        print(laterais)
         return laterais
 
     @classmethod
@@ -92,7 +82,6 @@ class FiltragemJogadores():
                 goleiros.append(i)
             else:
                 pass
-        print(goleiros)
         return goleiros
 
     @classmethod
@@ -104,7 +93,6 @@ class FiltragemJogadores():
                 tecnicos.append(i)
             else:
                 pass
-        print(tecnicos)
         return tecnicos
 
 class FiltragemJogosClubes():
