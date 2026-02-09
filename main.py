@@ -1,6 +1,5 @@
 from Filtragem import FiltragemMercado
 
-
 Status = FiltragemMercado.Statusmercado()
 
 if Status == 1:
