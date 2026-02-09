@@ -116,4 +116,3 @@ class FiltragemJogosClubes():
         #print(clubes['clubes'])
         return clubes['clubes']
 
-#Filtragem.Atacantes()
