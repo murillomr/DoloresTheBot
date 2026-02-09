@@ -14,7 +14,6 @@ class BuscaDados():
         r = resposta.content
         #print(r)
         jogado = r.decode('utf-8')
-        #print(jogado)
         return jogado
 
     @classmethod
