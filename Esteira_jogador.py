@@ -163,7 +163,6 @@ class Esteira():
         return jogadores
 
     #####################################################################################################
-    ##
     ## Daqui pra frente os metodos nao sao usados, obsoletos.. todos estado dentro do def posicaotime()
     ##
     #####################################################################################################
