@@ -246,21 +246,3 @@ else:
           Time7_preco, Time8_preco, Time9_preco, Time10_preco, Time11_preco)
 
 
-'''
-print(Time1_preco)
-print(Time2_preco)
-print(Time3_preco)
-print(Time4_preco)
-print(Time5_preco)
-print(Time6_preco)
-print(Time7_preco)
-print(Time8_preco)
-print(Time9_preco)
-print(Time10_preco)
-print(Time11_preco)
-'''
-
-#print(Atk1)
-#print(Atk2)
-#print(Atk3)
-#print(Preco_atk1 + Preco_atk2 + Preco_atk3)
