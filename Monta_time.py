@@ -205,7 +205,6 @@ except:
 
 
 patrimonio = BuscaDados.patrimonio()
-#patrimonio = 114
 print(patrimonio)
 
 if patrimonio > Time1_preco:
