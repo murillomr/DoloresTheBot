@@ -18,7 +18,6 @@ class Partidas():
     def filtro_times(cls):
         filtra = FiltragemJogosClubes.Jogos()
         for i in filtra:
-            #print(i['clube_casa_posicao'])
             if i['clube_casa_posicao'] < 5:
                 libertadores.append(i['clube_casa_id'])
             if 4 < i['clube_casa_posicao'] < 7:
