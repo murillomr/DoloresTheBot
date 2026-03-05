@@ -99,7 +99,6 @@ class FiltragemJogosClubes():
 
     @classmethod
     def JogosClubes(cls):
-        #jogosclubes = BuscaDados.partidas()
         jogosclubes = json.loads(jogos)
         #print(jogosclubes)
         return jogosclubes
