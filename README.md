@@ -1,5 +1,4 @@
 # DoloresTheBot - Bot para Cartola FC
-
 DoloresTheBot é um bot que escala automaticamente um time para o fantasy game Cartola FC, da Globo.com. O bot utiliza uma série de critérios para analisar e pontuar os jogadores disponíveis no mercado, montando o time com a melhor relação custo-benefício.
 
 ## Como funciona
